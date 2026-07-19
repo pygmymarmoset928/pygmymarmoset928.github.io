@@ -27,6 +27,14 @@
     padding:16px 18px;margin-bottom:28px;font-size:.95rem;color:var(--muted)
   }
   .note strong{color:var(--text)}
+  .warn{
+    background:#2a1f12;border:1px solid #5c4520;border-radius:10px;
+    padding:12px 14px;margin-bottom:16px;font-size:.88rem;color:#e0c894
+  }
+  .warn strong{color:#ffd98a}
+  .pp{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:16px;text-align:center}
+  .pp img{width:min(260px,80%);height:auto;background:#fff;padding:10px;border-radius:10px}
+  .pp .hint{color:var(--muted);font-size:.86rem;margin-top:10px}
   h2{font-size:1.1rem;margin:0 0 14px;color:var(--text)}
   .coin{
     background:var(--card);border:1px solid var(--line);border-radius:12px;
@@ -78,7 +86,17 @@
     (สองหมื่นกว่าบรรทัด + ทำฟอนต์ไทยเอง) จะขอบคุณมากครับ 🙏</p>
   </div>
 
-  <h2>ช่องทางสนับสนุน</h2>
+  <h2>พร้อมเพย์ (ง่ายสุดสำหรับคนไทย)</h2>
+  <div class="pp">
+    <img src="promptpay.png" alt="PromptPay QR">
+    <p class="hint">สแกนด้วยแอปธนาคารไหนก็ได้ · โอนเท่าไรก็ได้ตามสะดวก</p>
+  </div>
+
+  <h2>คริปโต</h2>
+  <div class="warn">
+    ⚠️ <strong>โอนให้ถูกเครือข่าย</strong> — แต่ละ address ใช้ได้เฉพาะเครือข่ายที่ระบุไว้เท่านั้น
+    ถ้าโอนผิดเครือข่าย <strong>เงินจะหายถาวร กู้คืนไม่ได้</strong> กรุณาตรวจสอบก่อนกดยืนยันทุกครั้ง
+  </div>
   <div id="coins"></div>
 
   <footer>
@@ -95,9 +113,10 @@
    ลบอันที่ไม่ใช้ออกได้ / เพิ่มเหรียญได้ตามต้องการ
    ═══════════════════════════════════════════════════════════ */
 const WALLETS = [
-  { name: "USDT",   net: "BEP20 (BSC)",  addr: "ใส่-address-ตรงนี้" },
-  { name: "USDT",   net: "TRC20 (Tron)", addr: "ใส่-address-ตรงนี้" },
-  { name: "Bitcoin", net: "BTC",         addr: "ใส่-address-ตรงนี้" },
+  { name: "USDT / BNB / ETH", net: "BEP20 (BSC) — แนะนำ ค่าโอนถูก",
+    addr: "0x0CDA3119978eB13DBd33DB221DB250598672ef28" },
+  { name: "SOL / USDT",       net: "Solana — ค่าโอนถูกมาก",
+    addr: "GhAtKRCFndEtLMzVWgnbu6DKNR2haqg9QTbRwGQNbrQd" },
 ];
 /* ═══════════════════════════════════════════════════════════ */
 

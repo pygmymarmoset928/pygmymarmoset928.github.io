@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>สนับสนุนผู้แปล — Dying Light: The Beast ภาษาไทย</title>
+<meta name="description" content="ม็อดแปลไทย Dying Light: The Beast โดย PygmyMarmoset — ดาวน์โหลดฟรี สนับสนุนตามสมัครใจ">
+<style>
+  :root{
+    --bg:#0d0f0e; --card:#161a18; --line:#262c29;
+    --text:#e8e6e1; --muted:#9aa39d; --accent:#c8a04a; --accent-dim:#8a6f33;
+    --ok:#5fbf7f;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:"Noto Sans Thai","Segoe UI",system-ui,-apple-system,sans-serif;
+    line-height:1.65; padding:24px 16px 64px;
+  }
+  .wrap{max-width:640px;margin:0 auto}
+  header{text-align:center;padding:24px 0 8px;border-bottom:1px solid var(--line);margin-bottom:28px}
+  h1{font-size:1.5rem;margin:0 0 6px;letter-spacing:.5px}
+  .sub{color:var(--accent);font-size:1rem;margin:0}
+  .by{color:var(--muted);font-size:.9rem;margin-top:10px}
+  .note{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;margin-bottom:28px;font-size:.95rem;color:var(--muted)
+  }
+  .note strong{color:var(--text)}
+  h2{font-size:1.1rem;margin:0 0 14px;color:var(--text)}
+  .coin{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:18px;margin-bottom:16px
+  }
+  .coin-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+  .coin-name{font-weight:600;color:var(--accent);font-size:1.02rem}
+  .coin-net{color:var(--muted);font-size:.82rem;border:1px solid var(--line);padding:2px 8px;border-radius:999px}
+  .addr{
+    font-family:ui-monospace,"Cascadia Code",Consolas,monospace;
+    font-size:.85rem; word-break:break-all; background:#0b0d0c;
+    border:1px solid var(--line); border-radius:8px; padding:12px; color:var(--text);
+    user-select:all
+  }
+  .row{display:flex;gap:10px;align-items:center;margin-top:12px;flex-wrap:wrap}
+  button{
+    background:var(--accent); color:#1a1408; border:0; border-radius:8px;
+    padding:10px 18px; font-size:.92rem; font-weight:600; cursor:pointer;
+    font-family:inherit; transition:.15s
+  }
+  button:hover{background:#d9b25c}
+  button.copied{background:var(--ok);color:#08210f}
+  .qr{background:#fff;padding:10px;border-radius:8px;display:inline-block;line-height:0}
+  .qr img,.qr canvas{display:block}
+  .qr-wrap{margin-top:14px}
+  details{margin-top:10px}
+  summary{cursor:pointer;color:var(--muted);font-size:.88rem}
+  footer{
+    margin-top:36px;padding-top:20px;border-top:1px solid var(--line);
+    color:var(--muted);font-size:.83rem;text-align:center
+  }
+  footer p{margin:6px 0}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Dying Light: The Beast</h1>
+    <p class="sub">ม็อดแปลภาษาไทย</p>
+    <p class="by">แปลโดย <strong>PygmyMarmoset</strong></p>
+  </header>
+
+  <div class="note">
+    <p style="margin-top:0"><strong>ม็อดนี้แจกฟรี ไม่มีค่าใช้จ่าย</strong> — ดาวน์โหลดและใช้ได้เลย
+    ไม่ต้องบริจาคก็ใช้ได้เต็มรูปแบบ</p>
+    <p style="margin-bottom:0">ถ้าถูกใจและอยากสนับสนุน <strong>เวลาและแรง</strong> ที่ใช้แปล
+    (สองหมื่นกว่าบรรทัด + ทำฟอนต์ไทยเอง) จะขอบคุณมากครับ 🙏</p>
+  </div>
+
+  <h2>ช่องทางสนับสนุน</h2>
+  <div id="coins"></div>
+
+  <footer>
+    <p>ม็อดนี้เป็นงานแปลของแฟนเกม แจกฟรี ไม่แสวงหากำไร</p>
+    <p>ไม่มีส่วนเกี่ยวข้องกับ Techland — สิทธิ์ในตัวเกมทั้งหมดเป็นของ Techland</p>
+    <p>ผู้ใช้ต้องเป็นเจ้าของเกมถูกลิขสิทธิ์</p>
+  </footer>
+
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   แก้ตรงนี้ที่เดียว — ใส่ address ของคุณ
+   ลบอันที่ไม่ใช้ออกได้ / เพิ่มเหรียญได้ตามต้องการ
+   ═══════════════════════════════════════════════════════════ */
+const WALLETS = [
+  { name: "USDT",   net: "BEP20 (BSC)",  addr: "ใส่-address-ตรงนี้" },
+  { name: "USDT",   net: "TRC20 (Tron)", addr: "ใส่-address-ตรงนี้" },
+  { name: "Bitcoin", net: "BTC",         addr: "ใส่-address-ตรงนี้" },
+];
+/* ═══════════════════════════════════════════════════════════ */
+
+const box = document.getElementById('coins');
+
+WALLETS.forEach((w, i) => {
+  const filled = !w.addr.includes('ใส่-address');
+  const el = document.createElement('div');
+  el.className = 'coin';
+  el.innerHTML = `
+    <div class="coin-head">
+      <span class="coin-name">${w.name}</span>
+      <span class="coin-net">${w.net}</span>
+    </div>
+    <div class="addr" id="addr${i}">${w.addr}</div>
+    <div class="row">
+      <button data-i="${i}">คัดลอก address</button>
+      ${filled ? `<span style="color:var(--muted);font-size:.85rem">หรือสแกน QR ด้านล่าง</span>` : ''}
+    </div>
+    ${filled ? `<div class="qr-wrap"><div class="qr" id="qr${i}"></div></div>` : ''}
+  `;
+  box.appendChild(el);
+});
+
+// ปุ่มคัดลอก
+box.addEventListener('click', async (e) => {
+  const btn = e.target.closest('button'); if (!btn) return;
+  const i = btn.dataset.i;
+  const text = document.getElementById('addr' + i).textContent.trim();
+  try { await navigator.clipboard.writeText(text); }
+  catch { const r = document.createRange(); r.selectNode(document.getElementById('addr'+i));
+          getSelection().removeAllRanges(); getSelection().addRange(r); document.execCommand('copy'); }
+  const old = btn.textContent;
+  btn.textContent = 'คัดลอกแล้ว ✓'; btn.classList.add('copied');
+  setTimeout(() => { btn.textContent = old; btn.classList.remove('copied'); }, 1800);
+});
+
+// QR code (โหลดไลบรารีเล็กๆ จาก CDN — ถ้าโหลดไม่ได้ ก็ยังคัดลอก address ได้ปกติ)
+(function loadQR(){
+  const s = document.createElement('script');
+  s.src = 'https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js';
+  s.onload = () => {
+    WALLETS.forEach((w, i) => {
+      const holder = document.getElementById('qr' + i);
+      if (!holder) return;
+      new QRCode(holder, { text: w.addr, width: 168, height: 168,
+                           colorDark: '#000000', colorLight: '#ffffff' });
+    });
+  };
+  s.onerror = () => document.querySelectorAll('.qr-wrap').forEach(n => n.remove());
+  document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>
